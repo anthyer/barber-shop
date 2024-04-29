@@ -1,14 +1,17 @@
 package Controller;
+import Controller.Helper.LoginHelper;
 import Model.Usuario;
 import View.Login;
 
 public class LoginController
 {
     private final Login view;
+    private LoginHelper helper;
     
     public LoginController (Login view)
     {
         this.view = view;
+        this.helper = new LoginHelper(view);
     }
     
     public void fizTarefa()
@@ -19,10 +22,6 @@ public class LoginController
     
     public void entrarNoSistema()
     {
-        String nome = view.getTextUsuario().getText();
-        String senha = view.getTextSenha().getText();
-        
-        Usuario modelo = new Usuario(0, nome, senha);
+        Usuario usuario = helper.obterModelo();
     }
-    
 }
