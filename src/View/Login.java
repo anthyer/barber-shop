@@ -4,6 +4,10 @@
  */
 package View;
 import Controller.LoginController;
+import Model.DAO.Banco;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -15,14 +19,14 @@ import javax.swing.JTextField;
 public class Login extends javax.swing.JFrame {
 
     private final LoginController controller;
-    private JPasswordField TextSenha;
-    private JTextField TextUsuario;
+
     /**
      * Creates new form Login
      */
-    public Login() {
+    public Login() throws ParseException {
         initComponents();
         controller = new LoginController(this);
+        Banco.inicia();
     }
     
     public void exibeMensagem(String mensagem)
@@ -37,8 +41,7 @@ public class Login extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
         jTextFieldUsuario = new javax.swing.JTextField();
@@ -59,32 +62,29 @@ public class Login extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setText("Login");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, -1, -1));
 
         jTextFieldUsuario.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        jTextFieldUsuario.setText("Digite seu nome de usuário...");
-        jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jTextFieldUsuario.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jTextFieldUsuarioComponentShown(evt);
+            }
+        });
+        jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUsuarioActionPerformed(evt);
             }
         });
         getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, 250, 40));
 
         jPasswordFieldSenha.setFont(new java.awt.Font("Candara", 0, 18)); // NOI18N
-        jPasswordFieldSenha.setText("Digite sua senha");
-        jPasswordFieldSenha.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jPasswordFieldSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldSenhaActionPerformed(evt);
             }
         });
@@ -125,7 +125,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
-        this.controller.fizTarefa();
+        this.controller.entrarNoSistema();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
@@ -137,8 +137,28 @@ public class Login extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_jPasswordFieldSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordFieldSenhaActionPerformed
+
+    private void jTextFieldUsuarioComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUsuarioComponentShown
+
+    public JPasswordField getTextSenha() {
+        return jPasswordFieldSenha;
+    }
+
+    public void setTextSenha(JPasswordField TextSenha) {
+        this.jPasswordFieldSenha = TextSenha;
+    }
+
+    public JTextField getTextUsuario() {
+        return jTextFieldUsuario;
+    }
+
+    public void setTextUsuario(JTextField TextUsuario) {
+        this.jTextFieldUsuario = TextUsuario;
+    }
     
-    public JPasswordField getTextSenha()
+    /*public JPasswordField getTextSenha()
     {
         return TextSenha;
     }
@@ -156,7 +176,9 @@ public class Login extends javax.swing.JFrame {
     public void setTextUsuario(JTextField TextUsuario)
     {
         this.TextUsuario = TextUsuario;
-    }   
+    }*/
+    
+    
     
     /**
      * @param args the command line arguments
@@ -188,7 +210,11 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (ParseException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

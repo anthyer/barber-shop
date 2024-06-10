@@ -20,7 +20,7 @@ public class Usuario extends Pessoa
         this.nivelAcesso = nivelAcesso;
     }
 
-    public Usuario(String senha, String nivelAcesso, int id, String nome, char sexo, String dataNascimento, String telefone, String email, String rg)
+    public Usuario(int id, String nome, char sexo, String dataNascimento, String telefone, String email, String rg, String senha, String nivelAcesso)
     {
         super(id, nome, sexo, dataNascimento, telefone, email, rg);
         this.senha = senha;
@@ -51,5 +51,10 @@ public class Usuario extends Pessoa
     public void setNivelAcesso(String nivelAcesso)
     {
         this.nivelAcesso = nivelAcesso;
+    }
+    
+    public int getId()
+    {
+        return this.id;
     }
 }

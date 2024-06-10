@@ -23,7 +23,7 @@ public class Agendamento
     Date data;
     String observacao;
 
-    public Agendamento(int id, Cliente cliente, Servico servico, float valor, String data)
+    public Agendamento(int id, Cliente cliente, Servico servico, float valor, String data, String observacao)
     {
         this.id = id;
         this.cliente = cliente;
@@ -38,6 +38,7 @@ public class Agendamento
             //Log do erro utilizando o Logger
             Logger.getLogger(Agendamento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.observacao = observacao;
     }
 
     public int getId()

@@ -58,9 +58,9 @@ public class Banco {
         Servico servico5 = new Servico(5, "Sombrancelhas", 10);
         Servico servico6 = new Servico(6, "Penteados", 35);
 
-        Agendamento agendamento1 = new Agendamento(0, cliente9, servico6, 0, "28/11/2023", "14:00", "cliente vai atrasar");
-        Agendamento agendamento2 = new Agendamento(0, cliente3, servico1, 0, "28/11/2023", "14:00", "cliente vai atrasar");
-        Agendamento agendamento3 = new Agendamento(0, cliente5, servico3, 0, "28/11/2023", "14:00", "cliente vai atrasar");
+        Agendamento agendamento1 = new Agendamento(0, cliente9, servico6, 0, "28/11/2023 14:00", "cliente vai atrasar");
+        Agendamento agendamento2 = new Agendamento(0, cliente3, servico1, 0, "28/11/2023 14:00", "cliente vai atrasar");
+        Agendamento agendamento3 = new Agendamento(0, cliente5, servico3, 0, "28/11/2023 14:00", "cliente vai atrasar");
 
      
         //Adiciona Elementos na lista

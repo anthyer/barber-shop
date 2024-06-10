@@ -4,17 +4,22 @@
  */
 package View;
 
+import Controller.MenuPrincipalController;
+
 /**
  *
  * @author Antonio
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
+    private final MenuPrincipalController controller;
+
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
         initComponents();
+        this.controller = new MenuPrincipalController(this);
     }
 
     /**
@@ -32,6 +37,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItemCliente = new javax.swing.JMenuItem();
         jMenuItemServico = new javax.swing.JMenuItem();
         jMenuOperacao = new javax.swing.JMenu();
+        MenuItemAgenda = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,7 +70,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBarBarbearia.add(jMenuCadastro);
 
         jMenuOperacao.setText("Operação");
+
+        MenuItemAgenda.setForeground(new java.awt.Color(0, 0, 0));
+        MenuItemAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Imagens/Icons/agenda-icon.png"))); // NOI18N
+        MenuItemAgenda.setText("Agenda");
+        MenuItemAgenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemAgendaActionPerformed(evt);
+            }
+        });
+        jMenuOperacao.add(MenuItemAgenda);
+
         jMenuBarBarbearia.add(jMenuOperacao);
+
+        jMenu1.setText("Relatório");
+        jMenuBarBarbearia.add(jMenu1);
 
         setJMenuBar(jMenuBarBarbearia);
 
@@ -73,6 +94,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuItemClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemClienteActionPerformed
+
+    private void MenuItemAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemAgendaActionPerformed
+        this.controller.navegarParaAgenda();
+    }//GEN-LAST:event_MenuItemAgendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,7 +135,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MenuItemAgenda;
     private javax.swing.JLabel jLabelFundo;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBarBarbearia;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenuItem jMenuItemCliente;

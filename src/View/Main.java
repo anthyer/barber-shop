@@ -32,7 +32,7 @@ public class Main
 
         /*Pessoa pessoa = new Pessoa(1, "Joao");//Erro Pessoa da classe abstract não pode ser instanciado
         System.out.println(pessoa.getNome());*/
-        Agendamento agendamento = new Agendamento(1, cliente, servico, 30, "25/03/2024 11:20");
+        Agendamento agendamento = new Agendamento(1, cliente, servico, 30, "25/03/2024 11:20", "");
         System.out.println(agendamento.getCliente().getNome());//Breakpoint
     }
 }
