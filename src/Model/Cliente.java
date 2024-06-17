@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model;
 
-/**
- *
- * @author ADS
- */
 public class Cliente extends Pessoa
 {
     private String endereco;
@@ -51,5 +43,10 @@ public class Cliente extends Pessoa
     {
         return this.id;
     }
-
+    
+    @Override
+    public String toString()
+    {
+        return getNome();
+    }
 }
