@@ -3,13 +3,16 @@ package View;
 import Controller.AgendaController;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 
-public class Agenda extends javax.swing.JFrame {
+public class Agenda extends javax.swing.JFrame
+{
 
     private final AgendaController controller;
 
-    public Agenda() {
+    public Agenda()
+    {
         initComponents();
         controller = new AgendaController(this);
         iniciar();
@@ -45,6 +48,13 @@ public class Agenda extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 32)); // NOI18N
         jButton1.setText("Agendar");
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 400, 460, 40));
 
         jTableAgenda.setModel(new javax.swing.table.DefaultTableModel(
@@ -70,6 +80,13 @@ public class Agenda extends javax.swing.JFrame {
         getContentPane().add(jScrollPaneObservacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 80, 460, 300));
 
         jComboBoxServico.setFont(new java.awt.Font("Gadugi", 0, 24)); // NOI18N
+        jComboBoxServico.addItemListener(new java.awt.event.ItemListener()
+        {
+            public void itemStateChanged(java.awt.event.ItemEvent evt)
+            {
+                jComboBoxServicoItemStateChanged(evt);
+            }
+        });
         getContentPane().add(jComboBoxServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 240, 40));
 
         jComboBoxCliente.setFont(new java.awt.Font("Gadugi", 0, 24)); // NOI18N
@@ -132,7 +149,18 @@ public class Agenda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void main(String args[]) {
+    private void jComboBoxServicoItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_jComboBoxServicoItemStateChanged
+    {//GEN-HEADEREND:event_jComboBoxServicoItemStateChanged
+        this.controller.atualizaValor();
+    }//GEN-LAST:event_jComboBoxServicoItemStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+    {//GEN-HEADEREND:event_jButton1ActionPerformed
+        this.controller.agendar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public static void main(String args[])
+    {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Agenda().setVisible(true);
@@ -167,6 +195,7 @@ public class Agenda extends javax.swing.JFrame {
         this.controller.atualizaTabela();
         this.controller.atualizaCliente();
         this.controller.atualizaServico();
+        this.controller.atualizaValor();
     }
     
     public JTable getTableAgendamentos()
@@ -197,5 +226,15 @@ public class Agenda extends javax.swing.JFrame {
     public void setjComboBoxServico(JComboBox<String> jComboBoxServico)
     {
         this.jComboBoxServico = jComboBoxServico;
+    }
+
+    public JTextField getjTextFieldValor()
+    {
+        return jTextFieldValor;
+    }
+
+    public void setjTextFieldValor(JTextField jTextFieldValor)
+    {
+        this.jTextFieldValor = jTextFieldValor;
     }
 }

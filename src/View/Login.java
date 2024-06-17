@@ -8,7 +8,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class Login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame
+{
 
     private final LoginController controller;
 
@@ -130,7 +131,8 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUsuarioComponentShown
 
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

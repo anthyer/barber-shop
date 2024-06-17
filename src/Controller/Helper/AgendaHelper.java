@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
-public class AgendaHelper
+public class AgendaHelper implements IHelper
 {
     private final Agenda view;
 
@@ -52,5 +52,27 @@ public class AgendaHelper
         {
             comboBoxModel.addElement(servico);
         }
+    }
+
+    public Servico obterServico()
+    {
+        return (Servico) view.getjComboBoxServico().getSelectedItem();
+    }
+
+    public void setarValor(float valor)
+    {
+        view.getjTextFieldValor().setText(valor+"");
+    }
+
+    @Override
+    public Object obterModelo()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void limparTela()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
