@@ -3,6 +3,7 @@ package View;
 import Controller.AgendaController;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 
@@ -33,7 +34,7 @@ public class Agenda extends javax.swing.JFrame
         jTextFieldValor = new javax.swing.JTextField();
         jTextFieldData = new javax.swing.JTextField();
         jTextFieldHora = new javax.swing.JTextField();
-        jTextFieldNome = new javax.swing.JTextField();
+        jTextFieldId = new javax.swing.JTextField();
         jLabelClinte = new javax.swing.JLabel();
         jLabelServico = new javax.swing.JLabel();
         jLabelValor = new javax.swing.JLabel();
@@ -104,9 +105,9 @@ public class Agenda extends javax.swing.JFrame
         jTextFieldHora.setText("Insira a hora");
         getContentPane().add(jTextFieldHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 240, -1));
 
-        jTextFieldNome.setFont(new java.awt.Font("Gadugi", 0, 24)); // NOI18N
-        jTextFieldNome.setText("Insira o nome");
-        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 240, -1));
+        jTextFieldId.setFont(new java.awt.Font("Gadugi", 0, 24)); // NOI18N
+        jTextFieldId.setText("0");
+        getContentPane().add(jTextFieldId, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 240, -1));
 
         jLabelClinte.setFont(new java.awt.Font("Bahnschrift", 0, 36)); // NOI18N
         jLabelClinte.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,7 +136,7 @@ public class Agenda extends javax.swing.JFrame
 
         jLabelNome.setFont(new java.awt.Font("Bahnschrift", 0, 36)); // NOI18N
         jLabelNome.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelNome.setText("Nome");
+        jLabelNome.setText("Id");
         getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
 
         jLabelFundoTransparente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Imagens/Agenda-PainelFundo.png"))); // NOI18N
@@ -186,7 +187,7 @@ public class Agenda extends javax.swing.JFrame
     private javax.swing.JTextArea jTextAreaObservacoes;
     private javax.swing.JTextField jTextFieldData;
     private javax.swing.JTextField jTextFieldHora;
-    private javax.swing.JTextField jTextFieldNome;
+    private javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
 
@@ -237,4 +238,46 @@ public class Agenda extends javax.swing.JFrame
     {
         this.jTextFieldValor = jTextFieldValor;
     }
+
+    public JTextArea getjTextAreaObservacoes()
+    {
+        return jTextAreaObservacoes;
+    }
+
+    public void setjTextAreaObservacoes(JTextArea jTextAreaObservacoes)
+    {
+        this.jTextAreaObservacoes = jTextAreaObservacoes;
+    }
+
+    public JTextField getjTextFieldData()
+    {
+        return jTextFieldData;
+    }
+
+    public void setjTextFieldData(JTextField jTextFieldData)
+    {
+        this.jTextFieldData = jTextFieldData;
+    }
+
+    public JTextField getjTextFieldHora()
+    {
+        return jTextFieldHora;
+    }
+
+    public void setjTextFieldHora(JTextField jTextFieldHora)
+    {
+        this.jTextFieldHora = jTextFieldHora;
+    }
+
+    public JTextField getjTextFieldId()
+    {
+        return jTextFieldId;
+    }
+
+    public void setjTextFieldId(JTextField jTextFieldId)
+    {
+        this.jTextFieldId = jTextFieldId;
+    }
+    
+    
 }
